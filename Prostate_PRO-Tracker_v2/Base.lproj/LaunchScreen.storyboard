@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -12,11 +14,57 @@
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="o2K-3J-aEt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DSC_9062 x 0.25" translatesAutoresizingMaskIntoConstraints="NO" id="w2L-3v-QLz">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Yale University. All rights reserved." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWk-IK-VhR">
+                                <rect key="frame" x="165" y="539.5" width="270" height="40.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="AhK-cN-gbq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prostate PRO-Tracker" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="ezj-4F-HOr">
+                                <rect key="frame" x="0.0" y="179.5" width="600" height="43"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ezj-4F-HOr" firstAttribute="leading" secondItem="w2L-3v-QLz" secondAttribute="trailing" constant="-460" id="0x0-1x-OBH"/>
+                            <constraint firstItem="ezj-4F-HOr" firstAttribute="centerY" secondItem="o2K-3J-aEt" secondAttribute="bottom" multiplier="1/3" constant="1" id="6px-Gz-33f"/>
+                            <constraint firstAttribute="trailing" secondItem="ezj-4F-HOr" secondAttribute="trailing" id="7qv-Gt-RwW"/>
+                            <constraint firstItem="w2L-3v-QLz" firstAttribute="leading" secondItem="o2K-3J-aEt" secondAttribute="leading" id="FGj-eu-cZv"/>
+                            <constraint firstAttribute="centerX" secondItem="pWk-IK-VhR" secondAttribute="centerX" id="LgQ-oN-M7X"/>
+                            <constraint firstAttribute="trailing" secondItem="w2L-3v-QLz" secondAttribute="trailing" id="Mj8-ku-Lfd"/>
+                            <constraint firstItem="w2L-3v-QLz" firstAttribute="top" secondItem="o2K-3J-aEt" secondAttribute="top" id="VTy-Cu-SNG"/>
+                            <constraint firstItem="ezj-4F-HOr" firstAttribute="leading" secondItem="o2K-3J-aEt" secondAttribute="leading" id="XIE-a5-hMe"/>
+                            <constraint firstAttribute="bottom" secondItem="pWk-IK-VhR" secondAttribute="bottom" constant="20" symbolic="YES" id="bro-0P-dir"/>
+                            <constraint firstAttribute="centerX" secondItem="ezj-4F-HOr" secondAttribute="centerX" id="d4h-Kg-IQ4"/>
+                            <constraint firstItem="pWk-IK-VhR" firstAttribute="leading" secondItem="o2K-3J-aEt" secondAttribute="leading" constant="20" symbolic="YES" id="iuL-7Z-DYj"/>
+                            <constraint firstItem="ezj-4F-HOr" firstAttribute="leading" secondItem="w2L-3v-QLz" secondAttribute="trailing" constant="-460" id="jZ0-fo-2B5"/>
+                            <constraint firstItem="w2L-3v-QLz" firstAttribute="centerX" secondItem="ezj-4F-HOr" secondAttribute="centerX" id="yAi-al-dru"/>
+                            <constraint firstAttribute="bottom" secondItem="w2L-3v-QLz" secondAttribute="bottom" id="zC6-xk-Apt"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="yAi-al-dru"/>
+                                <exclude reference="d4h-Kg-IQ4"/>
+                                <exclude reference="jZ0-fo-2B5"/>
+                                <exclude reference="0x0-1x-OBH"/>
+                                <exclude reference="iuL-7Z-DYj"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +72,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DSC_9062 x 0.25" width="1840" height="1228"/>
+    </resources>
 </document>

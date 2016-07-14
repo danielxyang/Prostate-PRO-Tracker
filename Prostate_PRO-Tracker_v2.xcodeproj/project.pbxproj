@@ -9,21 +9,63 @@
 /* Begin PBXBuildFile section */
 		653E2B911D37312800B23358 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2B901D37312800B23358 /* AppDelegate.swift */; };
 		653E2B931D37312800B23358 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2B921D37312800B23358 /* ViewController.swift */; };
-		653E2B961D37312800B23358 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 653E2B941D37312800B23358 /* Main.storyboard */; };
 		653E2B991D37312800B23358 /* Prostate_PRO_Tracker_v2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 653E2B971D37312800B23358 /* Prostate_PRO_Tracker_v2.xcdatamodeld */; };
 		653E2B9B1D37312800B23358 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653E2B9A1D37312800B23358 /* Assets.xcassets */; };
 		653E2B9E1D37312800B23358 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 653E2B9C1D37312800B23358 /* LaunchScreen.storyboard */; };
+		653E2BA61D37318A00B23358 /* TrackResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BA51D37318A00B23358 /* TrackResultsTableViewController.swift */; };
+		653E2BA81D37319700B23358 /* TrackResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BA71D37319700B23358 /* TrackResultsTableViewCell.swift */; };
+		653E2BAA1D37319B00B23358 /* TrackResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BA91D37319B00B23358 /* TrackResultsViewController.swift */; };
+		653E2BAC1D3731A000B23358 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BAB1D3731A000B23358 /* HelpViewController.swift */; };
+		653E2BAE1D3731A900B23358 /* HelpTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BAD1D3731A900B23358 /* HelpTextViewController.swift */; };
+		653E2BB11D3731F200B23358 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BB01D3731F200B23358 /* SurveyTask.swift */; };
+		653E2BB31D3731F500B23358 /* GetInvolvedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BB21D3731F500B23358 /* GetInvolvedTask.swift */; };
+		653E2BB51D3731F800B23358 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BB41D3731F800B23358 /* ConsentTask.swift */; };
+		653E2BB71D3731FC00B23358 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BB61D3731FC00B23358 /* ConsentDocument.swift */; };
+		653E2BBC1D37321A00B23358 /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BB91D37321A00B23358 /* CoreDataHandler.swift */; };
+		653E2BBD1D37321A00B23358 /* CMPersist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BBA1D37321A00B23358 /* CMPersist.swift */; };
+		653E2BBE1D37321A00B23358 /* DasSweeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BBB1D37321A00B23358 /* DasSweeper.swift */; };
+		653E2BC21D37323000B23358 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BC01D37323000B23358 /* User.swift */; };
+		653E2BC31D37323000B23358 /* Survey+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BC11D37323000B23358 /* Survey+CoreDataProperties.swift */; };
+		653E2BC51D37326B00B23358 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 653E2BC41D37326B00B23358 /* Main.storyboard */; };
+		653E2BCE1D3732C800B23358 /* NIKApiInvoker.m in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BC91D3732C800B23358 /* NIKApiInvoker.m */; };
+		653E2BCF1D3732C800B23358 /* NIKFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BCB1D3732C800B23358 /* NIKFile.m */; };
+		653E2BD01D3732C800B23358 /* ConsentWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BCD1D3732C800B23358 /* ConsentWriter.m */; };
+		65625D021D373B9800149219 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65625D001D373B9800149219 /* Charts.framework */; };
+		65625D031D373B9800149219 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65625D011D373B9800149219 /* ResearchKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		653E2B8D1D37312800B23358 /* Prostate_PRO-Tracker_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prostate_PRO-Tracker_v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		653E2B901D37312800B23358 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		653E2B921D37312800B23358 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		653E2B951D37312800B23358 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		653E2B981D37312800B23358 /* Prostate_PRO_Tracker_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prostate_PRO_Tracker_v2.xcdatamodel; sourceTree = "<group>"; };
 		653E2B9A1D37312800B23358 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		653E2B9D1D37312800B23358 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		653E2B9F1D37312800B23358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		653E2BA51D37318A00B23358 /* TrackResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackResultsTableViewController.swift; sourceTree = "<group>"; };
+		653E2BA71D37319700B23358 /* TrackResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackResultsTableViewCell.swift; sourceTree = "<group>"; };
+		653E2BA91D37319B00B23358 /* TrackResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackResultsViewController.swift; sourceTree = "<group>"; };
+		653E2BAB1D3731A000B23358 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		653E2BAD1D3731A900B23358 /* HelpTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpTextViewController.swift; sourceTree = "<group>"; };
+		653E2BB01D3731F200B23358 /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
+		653E2BB21D3731F500B23358 /* GetInvolvedTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetInvolvedTask.swift; sourceTree = "<group>"; };
+		653E2BB41D3731F800B23358 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
+		653E2BB61D3731FC00B23358 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
+		653E2BB91D37321A00B23358 /* CoreDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
+		653E2BBA1D37321A00B23358 /* CMPersist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMPersist.swift; sourceTree = "<group>"; };
+		653E2BBB1D37321A00B23358 /* DasSweeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DasSweeper.swift; sourceTree = "<group>"; };
+		653E2BC01D37323000B23358 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		653E2BC11D37323000B23358 /* Survey+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Survey+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		653E2BC41D37326B00B23358 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		653E2BC71D3732C800B23358 /* Prostate_PRO-Tracker_v2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Prostate_PRO-Tracker_v2-Bridging-Header.h"; sourceTree = "<group>"; };
+		653E2BC81D3732C800B23358 /* NIKApiInvoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIKApiInvoker.h; sourceTree = "<group>"; };
+		653E2BC91D3732C800B23358 /* NIKApiInvoker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIKApiInvoker.m; sourceTree = "<group>"; };
+		653E2BCA1D3732C800B23358 /* NIKFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIKFile.h; sourceTree = "<group>"; };
+		653E2BCB1D3732C800B23358 /* NIKFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIKFile.m; sourceTree = "<group>"; };
+		653E2BCC1D3732C800B23358 /* ConsentWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsentWriter.h; sourceTree = "<group>"; };
+		653E2BCD1D3732C800B23358 /* ConsentWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsentWriter.m; sourceTree = "<group>"; };
+		65625D001D373B9800149219 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		65625D011D373B9800149219 /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = Carthage/Build/iOS/ResearchKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65625D021D373B9800149219 /* Charts.framework in Frameworks */,
+				65625D031D373B9800149219 /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +86,7 @@
 			children = (
 				653E2B8F1D37312800B23358 /* Prostate_PRO-Tracker_v2 */,
 				653E2B8E1D37312800B23358 /* Products */,
+				653E2BC61D3732A100B23358 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +102,68 @@
 			isa = PBXGroup;
 			children = (
 				653E2B901D37312800B23358 /* AppDelegate.swift */,
+				653E2BA51D37318A00B23358 /* TrackResultsTableViewController.swift */,
+				653E2BA71D37319700B23358 /* TrackResultsTableViewCell.swift */,
+				653E2BA91D37319B00B23358 /* TrackResultsViewController.swift */,
 				653E2B921D37312800B23358 /* ViewController.swift */,
-				653E2B941D37312800B23358 /* Main.storyboard */,
+				653E2BAB1D3731A000B23358 /* HelpViewController.swift */,
+				653E2BAD1D3731A900B23358 /* HelpTextViewController.swift */,
+				653E2BAF1D3731DE00B23358 /* Tasks_and_Documents */,
+				653E2BB81D37320300B23358 /* DB_and_Core_Data */,
+				653E2BBF1D37322200B23358 /* Objects */,
+				653E2BC41D37326B00B23358 /* Main.storyboard */,
 				653E2B9A1D37312800B23358 /* Assets.xcassets */,
 				653E2B9C1D37312800B23358 /* LaunchScreen.storyboard */,
 				653E2B9F1D37312800B23358 /* Info.plist */,
 				653E2B971D37312800B23358 /* Prostate_PRO_Tracker_v2.xcdatamodeld */,
 			);
 			path = "Prostate_PRO-Tracker_v2";
+			sourceTree = "<group>";
+		};
+		653E2BAF1D3731DE00B23358 /* Tasks_and_Documents */ = {
+			isa = PBXGroup;
+			children = (
+				653E2BB01D3731F200B23358 /* SurveyTask.swift */,
+				653E2BB21D3731F500B23358 /* GetInvolvedTask.swift */,
+				653E2BB41D3731F800B23358 /* ConsentTask.swift */,
+				653E2BB61D3731FC00B23358 /* ConsentDocument.swift */,
+			);
+			name = Tasks_and_Documents;
+			sourceTree = "<group>";
+		};
+		653E2BB81D37320300B23358 /* DB_and_Core_Data */ = {
+			isa = PBXGroup;
+			children = (
+				653E2BB91D37321A00B23358 /* CoreDataHandler.swift */,
+				653E2BBA1D37321A00B23358 /* CMPersist.swift */,
+				653E2BBB1D37321A00B23358 /* DasSweeper.swift */,
+			);
+			name = DB_and_Core_Data;
+			sourceTree = "<group>";
+		};
+		653E2BBF1D37322200B23358 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				653E2BC01D37323000B23358 /* User.swift */,
+				653E2BC11D37323000B23358 /* Survey+CoreDataProperties.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		653E2BC61D3732A100B23358 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65625D001D373B9800149219 /* Charts.framework */,
+				65625D011D373B9800149219 /* ResearchKit.framework */,
+				653E2BC81D3732C800B23358 /* NIKApiInvoker.h */,
+				653E2BC91D3732C800B23358 /* NIKApiInvoker.m */,
+				653E2BCA1D3732C800B23358 /* NIKFile.h */,
+				653E2BCB1D3732C800B23358 /* NIKFile.m */,
+				653E2BCC1D3732C800B23358 /* ConsentWriter.h */,
+				653E2BCD1D3732C800B23358 /* ConsentWriter.m */,
+				653E2BC71D3732C800B23358 /* Prostate_PRO-Tracker_v2-Bridging-Header.h */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +176,7 @@
 				653E2B891D37312800B23358 /* Sources */,
 				653E2B8A1D37312800B23358 /* Frameworks */,
 				653E2B8B1D37312800B23358 /* Resources */,
+				65625D041D373BB500149219 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -127,19 +227,54 @@
 			files = (
 				653E2B9E1D37312800B23358 /* LaunchScreen.storyboard in Resources */,
 				653E2B9B1D37312800B23358 /* Assets.xcassets in Resources */,
-				653E2B961D37312800B23358 /* Main.storyboard in Resources */,
+				653E2BC51D37326B00B23358 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		65625D041D373BB500149219 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ResearchKit.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		653E2B891D37312800B23358 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653E2BBD1D37321A00B23358 /* CMPersist.swift in Sources */,
+				653E2BD01D3732C800B23358 /* ConsentWriter.m in Sources */,
+				653E2BBE1D37321A00B23358 /* DasSweeper.swift in Sources */,
+				653E2BAC1D3731A000B23358 /* HelpViewController.swift in Sources */,
+				653E2BB71D3731FC00B23358 /* ConsentDocument.swift in Sources */,
+				653E2BC21D37323000B23358 /* User.swift in Sources */,
+				653E2BBC1D37321A00B23358 /* CoreDataHandler.swift in Sources */,
+				653E2BCF1D3732C800B23358 /* NIKFile.m in Sources */,
 				653E2B931D37312800B23358 /* ViewController.swift in Sources */,
 				653E2B911D37312800B23358 /* AppDelegate.swift in Sources */,
+				653E2BA61D37318A00B23358 /* TrackResultsTableViewController.swift in Sources */,
+				653E2BAE1D3731A900B23358 /* HelpTextViewController.swift in Sources */,
+				653E2BCE1D3732C800B23358 /* NIKApiInvoker.m in Sources */,
+				653E2BB11D3731F200B23358 /* SurveyTask.swift in Sources */,
+				653E2BC31D37323000B23358 /* Survey+CoreDataProperties.swift in Sources */,
+				653E2BA81D37319700B23358 /* TrackResultsTableViewCell.swift in Sources */,
+				653E2BAA1D37319B00B23358 /* TrackResultsViewController.swift in Sources */,
+				653E2BB51D3731F800B23358 /* ConsentTask.swift in Sources */,
+				653E2BB31D3731F500B23358 /* GetInvolvedTask.swift in Sources */,
 				653E2B991D37312800B23358 /* Prostate_PRO_Tracker_v2.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +282,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		653E2B941D37312800B23358 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				653E2B951D37312800B23358 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		653E2B9C1D37312800B23358 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -255,10 +382,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Prostate_PRO-Tracker_v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jackson.Thea.Apps.Prostate-PRO-Tracker-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Prostate_PRO-Tracker_v2-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -266,10 +400,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Prostate_PRO-Tracker_v2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jackson.Thea.Apps.Prostate-PRO-Tracker-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Prostate_PRO-Tracker_v2-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -292,6 +432,7 @@
 				653E2BA41D37312800B23358 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
