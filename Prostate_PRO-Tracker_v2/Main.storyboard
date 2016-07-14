@@ -371,38 +371,6 @@
             </objects>
             <point key="canvasLocation" x="1870" y="-267"/>
         </scene>
-        <!--Help View Controller-->
-        <scene sceneID="qhC-e5-1EA">
-            <objects>
-                <viewController id="XjV-du-x3c" customClass="HelpViewController" customModule="Prostate_PRO_Tracker_v2" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2ca-ol-S1L"/>
-                        <viewControllerLayoutGuide type="bottom" id="HQ7-0g-ABj"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zzs-je-sQx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbq-iu-Kh0">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dbq-iu-Kh0" firstAttribute="bottom" secondItem="HQ7-0g-ABj" secondAttribute="top" id="P6J-J5-PIP"/>
-                            <constraint firstAttribute="trailing" secondItem="dbq-iu-Kh0" secondAttribute="trailing" id="q3J-d2-rOd"/>
-                            <constraint firstItem="dbq-iu-Kh0" firstAttribute="top" secondItem="2ca-ol-S1L" secondAttribute="bottom" id="tQN-Kj-aIP"/>
-                            <constraint firstItem="dbq-iu-Kh0" firstAttribute="leading" secondItem="Zzs-je-sQx" secondAttribute="leading" id="usf-8Y-KLQ"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="scrollView" destination="dbq-iu-Kh0" id="4cP-ZY-OXm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bFf-K4-n17" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1164" y="1431"/>
-        </scene>
         <!--Help Text View Controller-->
         <scene sceneID="3jv-pj-h2H">
             <objects>
@@ -441,7 +409,7 @@ The application is easy to use. Simply complete the following steps:</string>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0B3-1b-Cg4">
                                                 <rect key="frame" x="20" y="290" width="560" height="61.5"/>
-                                                <string key="text">Before accessing the rest of the application, you must first consent to be involved in this study. Tap the Consent button and follow the instruction on the screen. Please review all information carefully.</string>
+                                                <string key="text">1. Before accessing the rest of the application, you must first consent to be involved in this study. Tap the Consent button and follow the instruction on the screen. Please review all information carefully.</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -458,7 +426,7 @@ The application is easy to use. Simply complete the following steps:</string>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1g-A1-mM6">
                                                 <rect key="frame" x="20" y="476" width="560" height="82.5"/>
-                                                <string key="text">Tap the Respond button to enter your responses to a short clinical survey about your prostate cancer symptoms. You are able to respond as often as you’d like. We encourage you to respond often – even daily! If you have not responded in a week, the app will send you a reminder.</string>
+                                                <string key="text">2. Tap the Respond button to enter your responses to a short clinical survey about your prostate cancer symptoms. You are able to respond as often as you’d like. We encourage you to respond often – even daily! If you have not responded in a week, the app will send you a reminder.</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -475,7 +443,7 @@ The application is easy to use. Simply complete the following steps:</string>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffF-qe-kuS">
                                                 <rect key="frame" x="20" y="683" width="560" height="61.5"/>
-                                                <string key="text">Tap the Get Involved button to volunteer more information about yourself, such as your age, ethnicity, and type of treatment received for your cancer. You are able skip any questions or say “I don’t know.”</string>
+                                                <string key="text">3. Tap the Get Involved button to volunteer more information about yourself, such as your age, ethnicity, and type of treatment received for your cancer. You are able skip any questions or say “I don’t know.”</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -492,7 +460,7 @@ The application is easy to use. Simply complete the following steps:</string>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deK-dJ-kQ0">
                                                 <rect key="frame" x="20" y="869.5" width="560" height="229.5"/>
-                                                <string key="text">Tap the Track Results button to see graphs of how your responses have changed over time (lower score means fewer symptoms). The green bar indicates your reported symptoms of a specific type/domain, while the orange line indicates the sum total of your responses across all symptoms.    To protect your information, we recommend that you use a passcode on your iPhone while this application is installed.  That’s it! We look forward to your participation!</string>
+                                                <mutableString key="text">4. Tap the Track Results button to see graphs of how your responses have changed over time (lower score means fewer symptoms). The green bar indicates your reported symptoms of a specific type/domain, while the orange line indicates the sum total of your responses across all symptoms.    To protect your information, we recommend that you use a passcode on your iPhone while this application is installed.  That’s it! We look forward to your participation!</mutableString>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>

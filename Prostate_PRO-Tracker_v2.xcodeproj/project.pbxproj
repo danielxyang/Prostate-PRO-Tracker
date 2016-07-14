@@ -15,7 +15,6 @@
 		653E2BA61D37318A00B23358 /* TrackResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BA51D37318A00B23358 /* TrackResultsTableViewController.swift */; };
 		653E2BA81D37319700B23358 /* TrackResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BA71D37319700B23358 /* TrackResultsTableViewCell.swift */; };
 		653E2BAA1D37319B00B23358 /* TrackResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BA91D37319B00B23358 /* TrackResultsViewController.swift */; };
-		653E2BAC1D3731A000B23358 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BAB1D3731A000B23358 /* HelpViewController.swift */; };
 		653E2BAE1D3731A900B23358 /* HelpTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BAD1D3731A900B23358 /* HelpTextViewController.swift */; };
 		653E2BB11D3731F200B23358 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BB01D3731F200B23358 /* SurveyTask.swift */; };
 		653E2BB31D3731F500B23358 /* GetInvolvedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E2BB21D3731F500B23358 /* GetInvolvedTask.swift */; };
@@ -45,7 +44,6 @@
 		653E2BA51D37318A00B23358 /* TrackResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackResultsTableViewController.swift; sourceTree = "<group>"; };
 		653E2BA71D37319700B23358 /* TrackResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackResultsTableViewCell.swift; sourceTree = "<group>"; };
 		653E2BA91D37319B00B23358 /* TrackResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackResultsViewController.swift; sourceTree = "<group>"; };
-		653E2BAB1D3731A000B23358 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		653E2BAD1D3731A900B23358 /* HelpTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpTextViewController.swift; sourceTree = "<group>"; };
 		653E2BB01D3731F200B23358 /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
 		653E2BB21D3731F500B23358 /* GetInvolvedTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetInvolvedTask.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				653E2BA71D37319700B23358 /* TrackResultsTableViewCell.swift */,
 				653E2BA91D37319B00B23358 /* TrackResultsViewController.swift */,
 				653E2B921D37312800B23358 /* ViewController.swift */,
-				653E2BAB1D3731A000B23358 /* HelpViewController.swift */,
 				653E2BAD1D3731A900B23358 /* HelpTextViewController.swift */,
 				653E2BAF1D3731DE00B23358 /* Tasks_and_Documents */,
 				653E2BB81D37320300B23358 /* DB_and_Core_Data */,
@@ -259,7 +256,6 @@
 				653E2BBD1D37321A00B23358 /* CMPersist.swift in Sources */,
 				653E2BD01D3732C800B23358 /* ConsentWriter.m in Sources */,
 				653E2BBE1D37321A00B23358 /* DasSweeper.swift in Sources */,
-				653E2BAC1D3731A000B23358 /* HelpViewController.swift in Sources */,
 				653E2BB71D3731FC00B23358 /* ConsentDocument.swift in Sources */,
 				653E2BC21D37323000B23358 /* User.swift in Sources */,
 				653E2BBC1D37321A00B23358 /* CoreDataHandler.swift in Sources */,
