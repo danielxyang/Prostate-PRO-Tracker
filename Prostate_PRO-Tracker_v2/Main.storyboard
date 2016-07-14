@@ -460,7 +460,7 @@ The application is easy to use. Simply complete the following steps:</string>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deK-dJ-kQ0">
                                                 <rect key="frame" x="20" y="869.5" width="560" height="229.5"/>
-                                                <mutableString key="text">4. Tap the Track Results button to see graphs of how your responses have changed over time (lower score means fewer symptoms). The green bar indicates your reported symptoms of a specific type/domain, while the orange line indicates the sum total of your responses across all symptoms.    To protect your information, we recommend that you use a passcode on your iPhone while this application is installed.  That’s it! We look forward to your participation!</mutableString>
+                                                <string key="text">4. Tap the Track Results button to see graphs of how your responses have changed over time (lower score means fewer symptoms). The green bar indicates your reported symptoms of a specific type/domain, while the orange line indicates the sum total of your responses across all symptoms.    To protect your information, we recommend that you use a passcode on your iPhone while this application is installed.  That’s it! We look forward to your participation!</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -634,23 +634,6 @@ The application is easy to use. Simply complete the following steps:</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCO-cK-OEo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="242" y="253"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="E6X-90-U0K">
-            <objects>
-                <viewController id="eyl-cz-WsM" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="erh-4O-ONC"/>
-                        <viewControllerLayoutGuide type="bottom" id="DD8-Ox-D47"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nTa-zb-Kaq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hzY-k0-PO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

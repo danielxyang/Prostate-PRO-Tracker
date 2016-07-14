@@ -430,7 +430,7 @@ extension ViewController : ORKTaskViewControllerDelegate {
             // Consider clearing the contents of the output directory.
             break
         case ORKTaskViewControllerFinishReason.Saved:
-            let data: NSData = taskViewController.restorationData!
+//            let data: NSData = taskViewController.restorationData!
             
             // Store the restoration data persistently for later use.
             // Normally, keep the output directory for when you will restore.
