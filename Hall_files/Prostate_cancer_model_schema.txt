@@ -1,0 +1,42 @@
+Prostate_cancer_model_schema
+
+
+user:
+  -uuid:
+  -dateAdded: date
+  -timeAdded: time
+  -firstName: string
+  -lastName: string
+  -consentPdf: file
+
+
+get_involved:
+  -uuid:
+  -dateCompleted: date
+  -timeCompleted: time
+  -age: int
+  -race: int
+  -raceOtherText: string
+  -pcStage: int
+  -pcTStage: string
+  -lymphNodes: Bool
+  -gleasonScore: int
+  -psaLevel: int
+  -hormonalTherapy: Bool
+  -surgery: Bool
+  -robotSurgery: Bool
+  -openSurgery: Bool
+  -radiation: Bool
+  -radiationType: int
+  -chemo: Bool
+
+
+survey:
+  -uuid
+  -dateCompleted: date
+  -timeCompleted: time
+  -question1: int
+  -question2: int
+  ...
+  -question16: int
+
