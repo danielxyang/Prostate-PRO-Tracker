@@ -30,8 +30,8 @@ class HelpTextViewController: UIViewController {
 //        set normal and bold font (both have "body" style)
         let fontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody)
         let boldFontDescriptor = fontDescriptor.fontDescriptorWithSymbolicTraits(.TraitBold)
-        let boldFont = UIFont(descriptor: boldFontDescriptor, size: 0)
-        let normalFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        let boldFont = UIFont(descriptor: boldFontDescriptor, size: 20)
+        let normalFont = UIFont(descriptor: fontDescriptor, size: 20)
         
         
 //        load the text (with bold words and "body" style)
@@ -59,7 +59,7 @@ class HelpTextViewController: UIViewController {
         
         attString = NSMutableAttributedString(string: "4. Tap the ", attributes: [NSFontAttributeName : normalFont])
         attString.appendAttributedString(NSMutableAttributedString(string: "Track Results", attributes: [NSFontAttributeName : boldFont]))
-        attString.appendAttributedString(NSMutableAttributedString(string: " button to see graphs of how your responses have changed over time (lower score means fewer symptoms). The green bar indicates your reported symptoms of a specific type/domain, while the orange line indicates the sum total of your responses across all symptoms.\n\n\n\nTo protect your information, we recommend that you use a passcode on your iPhone while this application is installed.\n\nThat’s it! We look forward to your participation!", attributes: [NSFontAttributeName : normalFont]))
+        attString.appendAttributedString(NSMutableAttributedString(string: " button to see graphs of how your responses have changed over time (lower score means fewer symptoms). The green bar indicates your reported symptoms of a specific type/domain, while the orange line indicates the sum total of your responses across all symptoms.\n\n\n\nTo protect your information, we recommend that you use a passcode on your iOS device while this application is installed.\n\nThat’s it! We look forward to your participation!", attributes: [NSFontAttributeName : normalFont]))
         textLabel4.attributedText = attString
         
         

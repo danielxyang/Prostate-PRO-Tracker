@@ -37,6 +37,13 @@ class TrackResultsViewController: UIViewController {
         chartView.rightAxis.drawGridLinesEnabled = false
         chartView.rightAxis.drawLabelsEnabled = true
         
+//        axis and legend font
+        chartView.rightAxis.labelFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody) , size: 13)
+        chartView.leftAxis.labelFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody) , size: 13)
+        chartView.xAxis.labelFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody) , size: 13)
+        chartView.legend.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody) , size: 13)
+        chartView.legend.wordWrapEnabled = true
+        
 //        integer axis labels
         chartView.leftAxis.valueFormatter = NSNumberFormatter()
         chartView.leftAxis.valueFormatter?.minimumFractionDigits = 0
@@ -53,7 +60,6 @@ class TrackResultsViewController: UIViewController {
         chartView.leftAxis.axisMinValue = 0
         chartView.rightAxis.axisMaxValue = 62.0
         chartView.rightAxis.axisMinValue = 0
-        chartView.setViewPortOffsets(left: 30, top: 20, right: 30, bottom: 20)
         
 //        working with texts
         chartView.descriptionText = ""
