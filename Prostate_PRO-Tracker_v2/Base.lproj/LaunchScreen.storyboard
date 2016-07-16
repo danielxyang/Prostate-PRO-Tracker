@@ -59,9 +59,9 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="yAi-al-dru"/>
+                                <exclude reference="0x0-1x-OBH"/>
                                 <exclude reference="d4h-Kg-IQ4"/>
                                 <exclude reference="jZ0-fo-2B5"/>
-                                <exclude reference="0x0-1x-OBH"/>
                                 <exclude reference="iuL-7Z-DYj"/>
                             </mask>
                         </variation>

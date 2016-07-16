@@ -91,7 +91,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     
     //question 6
     questionStepTitle = "What is the gleason score of your prostate cancer?"
-    let scaleAnswerFormat: ORKScaleAnswerFormat = ORKScaleAnswerFormat(maximumValue: 10, minimumValue: 2, defaultValue: 6, step: 1)
+    let scaleAnswerFormat: ORKScaleAnswerFormat = ORKScaleAnswerFormat(maximumValue: 10, minimumValue: 6, defaultValue: 6, step: 1)
     questionStep = ORKQuestionStep(identifier: "questionStep6", title: questionStepTitle, answer: scaleAnswerFormat)
     steps += [questionStep]
     
