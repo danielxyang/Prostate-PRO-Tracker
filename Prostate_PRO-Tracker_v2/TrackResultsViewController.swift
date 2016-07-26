@@ -101,7 +101,7 @@ class TrackResultsViewController: UIViewController {
         chartDataSet.drawValuesEnabled = false
         
 //        colors
-        chartDataSet.setColor(UIColor(colorLiteralRed: 2/255.0, green: 70/255.0, blue: 112/255.0, alpha: 1.0))
+        chartDataSet.setColor(UIColor(colorLiteralRed: 0/255.0, green: 53/255.0, blue: 107/255.0, alpha: 1.0))
         
         chartDataSet.axisDependency = ChartYAxis.AxisDependency.Left
         let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
