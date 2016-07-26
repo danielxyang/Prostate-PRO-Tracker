@@ -32,6 +32,7 @@ class TrackResultsViewController: UIViewController {
         
 //        axis labels/grids
         chartView.xAxis.spaceBetweenLabels = 0
+        chartView.xAxis.labelPosition = .Bottom
         chartView.leftAxis.drawGridLinesEnabled = false
         chartView.leftAxis.drawLabelsEnabled = true
         chartView.rightAxis.drawGridLinesEnabled = false
@@ -100,7 +101,7 @@ class TrackResultsViewController: UIViewController {
         chartDataSet.drawValuesEnabled = false
         
 //        colors
-        chartDataSet.setColor(UIColor(colorLiteralRed: 60/255, green: 220/255, blue: 78/255, alpha: 1.0))
+        chartDataSet.setColor(UIColor(colorLiteralRed: 2/255.0, green: 70/255.0, blue: 112/255.0, alpha: 1.0))
         
         chartDataSet.axisDependency = ChartYAxis.AxisDependency.Left
         let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
@@ -120,9 +121,10 @@ class TrackResultsViewController: UIViewController {
         
 //        visuals
         chartDataSet.drawValuesEnabled = false
-        chartDataSet.drawCircleHoleEnabled = false
-        chartDataSet.circleRadius = 4.0
-        chartDataSet.lineWidth = 2.5
+        chartDataSet.drawCircleHoleEnabled = true
+        chartDataSet.circleHoleRadius = 3.0
+        chartDataSet.circleRadius = 7.0
+        chartDataSet.lineWidth = 5.0
         
 //        colors
         let lineColor = UIColor.orangeColor()
