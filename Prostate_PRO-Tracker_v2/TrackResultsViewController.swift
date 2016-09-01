@@ -127,7 +127,8 @@ class TrackResultsViewController: UIViewController {
         chartDataSet.lineWidth = 5.0
         
 //        colors
-        let lineColor = UIColor.orangeColor()
+//        let lineColor = UIColor.orangeColor() //219, 33, 93
+        let lineColor = UIColor(colorLiteralRed: 219/255.0, green: 33/255.0, blue: 93/255.0, alpha: 1.0)
         chartDataSet.setCircleColor(lineColor)
         chartDataSet.setColor(lineColor)
         
