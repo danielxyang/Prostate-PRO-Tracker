@@ -12,7 +12,7 @@ import CoreData
 
 class TrackResultsTableViewController: UITableViewController {
     
-    var dateTimeAdded = [NSDate]()
+    var dateTimeAdded = [Date]()
     var surveyDates = [String]()
     var surveyTaskResults = [[Int?]]()
     var titles = ["Urinary Incontinence", "Urinary Irritation/Obstruction", "Bowel", "Sexual", "Vitality/Hormonal", "Overall"]
@@ -39,9 +39,9 @@ class TrackResultsTableViewController: UITableViewController {
                 for i in NSAnswers {
                     surveyAnswers.append(i as? Int)
                 }
-                let formatter = NSDateFormatter()
-                formatter.dateStyle = .ShortStyle
-                surveyDates.append(formatter.stringFromDate(s.dateTimeCompleted))
+                let formatter = DateFormatter()
+                formatter.dateStyle = .short
+                surveyDates.append(formatter.string(from: s.dateTimeCompleted as Date))
             }
             if (!surveyAnswers.isEmpty) {
                 surveyTaskResults.append(surveyAnswers)
@@ -54,9 +54,9 @@ class TrackResultsTableViewController: UITableViewController {
         }
         
         
-        for (i, _) in surveyTaskResults.first!.enumerate() {
+        for (i, _) in surveyTaskResults.first!.enumerated() {
             var thisArray = [Double]()
-            for (j, _) in surveyTaskResults.enumerate() {
+            for (j, _) in surveyTaskResults.enumerated() {
                 let result = Double(surveyTaskResults[j][i] ?? 0)
                 thisArray.append(result)
             }
@@ -88,31 +88,31 @@ class TrackResultsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return titles.count - 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
-    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SurveyQuestion", forIndexPath: indexPath) as! TrackResultsTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SurveyQuestion", for: indexPath) as! TrackResultsTableViewCell
 
         // Configure the cell...
         cell.index = indexPath.section
         cell.title = titles[indexPath.section] + " Symptoms"
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
 //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator
 
         return cell
@@ -121,8 +121,8 @@ class TrackResultsTableViewController: UITableViewController {
     
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var destination = segue.destinationViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destination = segue.destination
         
         if let navCon = destination as? UINavigationController {
             destination = navCon.visibleViewController!

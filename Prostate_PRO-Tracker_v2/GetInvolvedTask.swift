@@ -22,13 +22,13 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     
     //question 1
     var questionStepTitle = "What is your date of birth?"
-    let minDateComps = NSDateComponents()
-    let myCal = NSCalendar.currentCalendar()
+    var minDateComps = DateComponents()
+    let myCal = Calendar.current
     minDateComps.year = 1880
     minDateComps.month = 1
     minDateComps.day = 1
-    let minDate = myCal.dateFromComponents(minDateComps)!
-    var dateAnswerFormat: ORKDateAnswerFormat = ORKDateAnswerFormat(style: .Date, defaultDate: nil, minimumDate: minDate, maximumDate: NSDate(), calendar: nil)
+    let minDate = myCal.date(from: minDateComps)!
+    var dateAnswerFormat: ORKDateAnswerFormat = ORKDateAnswerFormat(style: .date, defaultDate: nil, minimumDate: minDate, maximumDate: Date(), calendar: nil)
     var questionStep = ORKQuestionStep(identifier: "questionStep1", title: questionStepTitle, answer: dateAnswerFormat)
     steps += [questionStep]
     
@@ -53,7 +53,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
         ORKTextChoice(text: "Native Hawaiian or other Pacific Islander", value: 5),
         ORKTextChoice(text: "Other", value: 6)
     ]
-    var textChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    var textChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep2", title: questionStepTitle, answer: textChoiceAnswerFormat)
     steps += [questionStep]
     
@@ -73,7 +73,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
         ORKTextChoice(text: "Stage IV", value: 4),
         ORKTextChoice(text: "I don't know", value: 5)
     ]
-    textChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    textChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep3", title: questionStepTitle, answer: textChoiceAnswerFormat)
     steps += [questionStep]
     
@@ -97,7 +97,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     
     //question 7
     questionStepTitle = "What is was your PSA (prostate specific antigen) level prior to starting cancer treatment (prior to any hormonal therapy)?"
-    var numericAnswerFormat = ORKNumericAnswerFormat(style: .Decimal, unit: "ng/mL")
+    var numericAnswerFormat = ORKNumericAnswerFormat(style: .decimal, unit: "ng/mL")
     numericAnswerFormat.minimum = 0
     numericAnswerFormat.maximum = 100
     questionStep = ORKQuestionStep(identifier: "questionStep7", title: questionStepTitle, answer: numericAnswerFormat)
@@ -144,7 +144,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
         ORKTextChoice(text: "Combination of external beam and cyberkinfe/radiosurgery", value: 5),
         ORKTextChoice(text: "Combination of external beam and high dose rate brachytherapy", value: 6)
     ]
-    textChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    textChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep13", title: questionStepTitle, answer: textChoiceAnswerFormat)
     steps += [questionStep]
     
@@ -167,7 +167,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     
     
     //    add rule to step 2
-    var resultPredicates = [ORKResultPredicate.predicateForChoiceQuestionResultWithResultSelector(ORKResultSelector(resultIdentifier:"questionStep2"), expectedAnswerValue: 6)]
+    var resultPredicates = [ORKResultPredicate.predicateForChoiceQuestionResult(with: ORKResultSelector(resultIdentifier:"questionStep2"), expectedAnswerValue: 6)]
     
     var destinationStepIdentifiers = ["questionStep2b"]
     
@@ -177,7 +177,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     
     
     //    add rule to step 9
-    resultPredicates = [ORKResultPredicate.predicateForBooleanQuestionResultWithResultSelector(ORKResultSelector(resultIdentifier: "questionStep9"), expectedAnswer: false)]
+    resultPredicates = [ORKResultPredicate.predicateForBooleanQuestionResult(with: ORKResultSelector(resultIdentifier: "questionStep9"), expectedAnswer: false)]
     
     destinationStepIdentifiers = ["questionStep12"]
     
@@ -187,7 +187,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     
     
     //    add rule to step 10
-    resultPredicates = [ORKResultPredicate.predicateForBooleanQuestionResultWithResultSelector(ORKResultSelector(resultIdentifier: "questionStep10"), expectedAnswer: true)]
+    resultPredicates = [ORKResultPredicate.predicateForBooleanQuestionResult(with: ORKResultSelector(resultIdentifier: "questionStep10"), expectedAnswer: true)]
     
     destinationStepIdentifiers = ["questionStep12"]
     
@@ -197,7 +197,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     
     
     //    add rule to step 12
-    resultPredicates = [ORKResultPredicate.predicateForBooleanQuestionResultWithResultSelector(ORKResultSelector(resultIdentifier: "questionStep12"), expectedAnswer: false)]
+    resultPredicates = [ORKResultPredicate.predicateForBooleanQuestionResult(with: ORKResultSelector(resultIdentifier: "questionStep12"), expectedAnswer: false)]
     
     destinationStepIdentifiers = ["questionStep14"]
     

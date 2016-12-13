@@ -10,12 +10,12 @@ import UIKit
 import CoreData
 
 protocol ProfileHTMLDelegate {
-  func profileHTMLReturnedWith(htmlString: String)
-  func serverStatus(up: Bool)
+  func profileHTMLReturnedWith(_ htmlString: String)
+  func serverStatus(_ up: Bool)
 }
 
-enum ParseError: ErrorType {
-  case MissingAttribute(message: String)
+enum ParseError: Error {
+  case missingAttribute(message: String)
 }
 
 let kSessionKey = "SessionKey"
@@ -27,15 +27,15 @@ let kSessionKey = "SessionKey"
   var htmlDelegate: ProfileHTMLDelegate?
   
   var moc: NSManagedObjectContext!
-  let userDefaults = NSUserDefaults.standardUserDefaults()
+  let userDefaults = UserDefaults.standard
   
   var sessionId: String? {
-    return userDefaults.objectForKey(kSessionKey) as? String
+    return userDefaults.object(forKey: kSessionKey) as? String
   }
   
   //MARK: - Login / Logout
   func dbSessionLogin() -> Bool {
-    nik.restPath(Globals.kSessionURL,
+    nik?.restPath(Globals.kSessionURL,
       method: "POST",
       queryParams: [:],
       body: Globals.kUserHeader,
@@ -49,14 +49,14 @@ let kSessionKey = "SessionKey"
           print(">> DB Session Response: \(response)")
           let localSessionId = response["session_id"] as! String
           print("Session ID: \(localSessionId)")
-          self.userDefaults.setObject(localSessionId, forKey: kSessionKey)
+          self.userDefaults.set(localSessionId, forKey: kSessionKey)
         }
     })
     return true
   }
   
   func dbSessionLogout() -> Bool {
-    nik.restPath(Globals.kSessionURL,
+    nik?.restPath(Globals.kSessionURL,
       method: "DELETE",
       queryParams: [:],
       body: Globals.kUserHeader,
@@ -67,29 +67,29 @@ let kSessionKey = "SessionKey"
           print(">> DB Session Delete Error: \(error)")
         }
         else {
-          self.userDefaults.removeObjectForKey(kSessionKey)
-          print("DB closed: \(self.userDefaults.objectForKey(kSessionKey))")
+          self.userDefaults.removeObject(forKey: kSessionKey)
+          print("DB closed: \(self.userDefaults.object(forKey: kSessionKey))")
         }
     })
     return true
   }
   
   //MARK: - Persist User
-  func _persistUser(user: User, moc: NSManagedObjectContext) {
+  func _persistUser(_ user: User, moc: NSManagedObjectContext) {
     var headerParams = Globals.kHeaderParams
-    let session = self.userDefaults.objectForKey(kSessionKey) as! String
+    let session = self.userDefaults.object(forKey: kSessionKey) as! String
     
     
-    let timeformatter = NSDateFormatter()
+    let timeformatter = DateFormatter()
     timeformatter.dateFormat = "YYY-MM-dd HH:mm a"
-    let dateTimeAdded = NSDate()
-    let dateTimeAddedString = timeformatter.stringFromDate(dateTimeAdded)
+    let dateTimeAdded = Date()
+    let dateTimeAddedString = timeformatter.string(from: dateTimeAdded)
     user.dateTimeAdded = dateTimeAdded
 
     
     headerParams["X-DreamFactory-Session-Token"] = session
     
-    nik.restPath(Globals.kUserURL,
+    nik?.restPath(Globals.kUserURL,
       method: "POST",
       queryParams: [:],
       body: ["uuid" : user.uuid!,
@@ -117,14 +117,14 @@ let kSessionKey = "SessionKey"
     })
   }
   
-  func dbPersistUser(user: User, moc: NSManagedObjectContext) {
-    let group: dispatch_group_t = dispatch_group_create()
-    let queue: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+  func dbPersistUser(_ user: User, moc: NSManagedObjectContext) {
+    let group: DispatchGroup = DispatchGroup()
+    let queue: DispatchQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
     
-    dispatch_group_enter(group)
+    group.enter()
     
     if self.sessionId == nil {
-      nik.restPath(Globals.kSessionURL,
+      nik?.restPath(Globals.kSessionURL,
         method: "POST",
         queryParams: [:],
         body: Globals.kUserHeader,
@@ -140,26 +140,26 @@ let kSessionKey = "SessionKey"
             print(">> DB Session Response: \(response)")
             print("Session ID: \(localSessionId)")
             
-            self.userDefaults.setObject(localSessionId, forKey: kSessionKey)
-            dispatch_group_leave(group)
+            self.userDefaults.set(localSessionId, forKey: kSessionKey)
+            group.leave()
           }
       })
     }
     else {
-      dispatch_group_leave(group)
+      group.leave()
     }
     
-    dispatch_group_notify(group, queue, {
+    group.notify(queue: queue, execute: {
       self._persistUser(user, moc: moc)
     })
   }
     
-    func arrayToString(array: NSArray, type: String) ->String {
+    func arrayToString(_ array: NSArray, type: String) ->String {
         var returnString = "["
         let count = array.count
         let questionIdentifiers = (type == Globals.surveyIdentifier) ? Globals.surveyQuestionIdentifiers : Globals.getInvolvedQuestionIdentifiers
-        for (index, val) in array.enumerate() {
-            let unOptionaledVal: AnyObject = val ?? "nil"
+        for (index, val) in array.enumerated() {
+            let unOptionaledVal: AnyObject = val as AnyObject? ?? "nil" as AnyObject
             if index != count - 1 {
                 returnString += "\(questionIdentifiers[index]): \(unOptionaledVal), "
             } else {
@@ -170,15 +170,15 @@ let kSessionKey = "SessionKey"
     }
   
   //MARK: - Persist Survey
-  func _persistSurvey(survey: Survey, user: User, moc: NSManagedObjectContext) {
+  func _persistSurvey(_ survey: Survey, user: User, moc: NSManagedObjectContext) {
     var headerParams = Globals.kHeaderParams
-    let session = self.userDefaults.objectForKey(kSessionKey) as! String
+    let session = self.userDefaults.object(forKey: kSessionKey) as! String
     
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "YYY-MM-dd HH:mm a"
-    let dateTimeCompletedString = dateFormatter.stringFromDate(survey.dateTimeCompleted)
-    let dateTimeAdded = NSDate()
-    let dateTimeAddedString = dateFormatter.stringFromDate(dateTimeAdded)
+    let dateTimeCompletedString = dateFormatter.string(from: survey.dateTimeCompleted as Date)
+    let dateTimeAdded = Date()
+    let dateTimeAddedString = dateFormatter.string(from: dateTimeAdded)
     survey.dateTimeAdded = dateTimeAdded
     
     let sAnswers = arrayToString(survey.answers, type: survey.type)
@@ -187,7 +187,7 @@ let kSessionKey = "SessionKey"
     
     headerParams["X-DreamFactory-Session-Token"] = session
     
-    nik.restPath(Globals.kSurveyURL,
+    nik?.restPath(Globals.kSurveyURL,
       method: "POST",
       queryParams: [:],
       body: ["uuidUser" : user.uuid!,
@@ -215,14 +215,14 @@ let kSessionKey = "SessionKey"
     })
   }
   
-  func dbPersistSurvey(survey: Survey, user: User, moc: NSManagedObjectContext) {
-    let group: dispatch_group_t = dispatch_group_create()
-    let queue: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+  func dbPersistSurvey(_ survey: Survey, user: User, moc: NSManagedObjectContext) {
+    let group: DispatchGroup = DispatchGroup()
+    let queue: DispatchQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
     
-    dispatch_group_enter(group)
+    group.enter()
     
     if self.sessionId == nil {
-      nik.restPath(Globals.kSessionURL,
+      nik?.restPath(Globals.kSessionURL,
         method: "POST",
         queryParams: [:],
         body: Globals.kUserHeader,
@@ -238,16 +238,16 @@ let kSessionKey = "SessionKey"
             print(">> DB Session Response: \(response)")
             print("Session ID: \(localSessionId)")
             
-            self.userDefaults.setObject(localSessionId, forKey: kSessionKey)
-            dispatch_group_leave(group)
+            self.userDefaults.set(localSessionId, forKey: kSessionKey)
+            group.leave()
           }
       })
     }
     else {
-      dispatch_group_leave(group)
+      group.leave()
     }
     
-    dispatch_group_notify(group, queue, {
+    group.notify(queue: queue, execute: {
       self._persistSurvey(survey, user: user, moc: moc)
     })
   }
@@ -331,7 +331,7 @@ let kSessionKey = "SessionKey"
 //    })
 //  }
 //  
-  func patchURLForUser(thisUser: User) -> String {
+  func patchURLForUser(_ thisUser: User) -> String {
     /// %3D is url encoded from = , %22 is "
     return Globals.kUserURL + "?filter=uuidUser%3D%22" + thisUser.uuid! + "%22"
   }
@@ -401,23 +401,23 @@ let kSessionKey = "SessionKey"
 //    })
 //  }
   
-  func _postPDF(filename: String, fileString: String) {
+  func _postPDF(_ filename: String, fileString: String) {
     var headerParams = Globals.kHeaderParams
-    let session = self.userDefaults.objectForKey(kSessionKey) as! String
+    let session = self.userDefaults.object(forKey: kSessionKey) as! String
     let user = User.sharedInstance
     var familyName: String = ""
     
     headerParams["X-DreamFactory-Session-Token"] = session
     
-    let fileURL = NSURL(fileURLWithPath: fileString)
-    let fileData = NSData(contentsOfURL: fileURL)
+    let fileURL = URL(fileURLWithPath: fileString)
+    let fileData = try? Data(contentsOf: fileURL)
     let file: NIKFile = NIKFile(nameData: filename, mimeType: Globals.kContentTypeOctet, data: fileData)
     
     if let fname = user.lastName {
       familyName = fname
     }
     
-    nik.restPath(Globals.kConsentURL + filename,
+    nik?.restPath(Globals.kConsentURL + filename,
       method: "POST",
       queryParams: nil,
       body: file,
@@ -430,22 +430,22 @@ let kSessionKey = "SessionKey"
         else {
           print("FILESTRING: \(fileString)")
           
-          let defaults = NSUserDefaults.standardUserDefaults()
+          let defaults = UserDefaults.standard
           
           // Because these are just PDFs, we set a Bool UserDefault
           // after they are persisted with the filename as a key.
           
-          defaults.setBool(true, forKey: filename)
+          defaults.set(true, forKey: filename)
           
           print(">> DB Session Response: \(response)")
         }
     })
     
-    let timeformatter = NSDateFormatter()
+    let timeformatter = DateFormatter()
     timeformatter.dateFormat = "YYY-MM-dd HH:mm a"
-    let dateConsented = timeformatter.stringFromDate(user.dateTimeAdded!)
+    let dateConsented = timeformatter.string(from: user.dateTimeAdded! as Date)
     
-    nik.restPath(patchURLForUser(user), //Globals.kUserURL + uuidEncoded,
+    nik?.restPath(patchURLForUser(user), //Globals.kUserURL + uuidEncoded,
       method: "PATCH",
       queryParams: nil,
       body: ["isConsented" : true,
@@ -464,15 +464,15 @@ let kSessionKey = "SessionKey"
   }
   
   
-  func dbPostPDF(filename: String, fileString: String) {
-    let group: dispatch_group_t = dispatch_group_create()
-    let queue: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+  func dbPostPDF(_ filename: String, fileString: String) {
+    let group: DispatchGroup = DispatchGroup()
+    let queue: DispatchQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
     var localSessionId: String!
     
-    dispatch_group_enter(group)
+    group.enter()
     if self.sessionId == nil {
       
-      nik.restPath(Globals.kSessionURL,
+      nik?.restPath(Globals.kSessionURL,
         method: "POST",
         queryParams: [:],
         body: Globals.kUserHeader,
@@ -488,16 +488,16 @@ let kSessionKey = "SessionKey"
             print(">> DB Session Response: \(response)")
             print("Session ID: \(localSessionId)")
             
-            self.userDefaults.setObject(localSessionId, forKey: kSessionKey)
-            dispatch_group_leave(group)
+            self.userDefaults.set(localSessionId, forKey: kSessionKey)
+            group.leave()
           }
       })
     }
     else {
-      dispatch_group_leave(group)
+      group.leave()
     }
     
-    dispatch_group_notify(group, queue, {
+    group.notify(queue: queue, execute: {
       self._postPDF(filename, fileString: fileString)
     })
   }

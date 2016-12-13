@@ -9,54 +9,54 @@
 import Foundation
 
 class User: NSObject {
-    let userDefaults = NSUserDefaults.standardUserDefaults()
+    let userDefaults = UserDefaults.standard
     
     var uuid: String? {
         set {
-            userDefaults.setObject(newValue, forKey: Globals.userDefaultUuidKey)
+            userDefaults.set(newValue, forKey: Globals.userDefaultUuidKey)
         }
         get {
-            return userDefaults.stringForKey(Globals.userDefaultUuidKey)
+            return userDefaults.string(forKey: Globals.userDefaultUuidKey)
         }
     }
     var storedRemotely: Bool? {
         set {
-            userDefaults.setObject(newValue, forKey: Globals.userDefaultStoredRemotelyKey)
+            userDefaults.set(newValue, forKey: Globals.userDefaultStoredRemotelyKey)
         }
         get {
-            return userDefaults.boolForKey(Globals.userDefaultStoredRemotelyKey)
+            return userDefaults.bool(forKey: Globals.userDefaultStoredRemotelyKey)
         }
     }
-    var dateTimeAdded: NSDate? {
+    var dateTimeAdded: Date? {
         set {
-            userDefaults.setObject(newValue, forKey: Globals.userDefaultDateTimeAddedKey)
+            userDefaults.set(newValue, forKey: Globals.userDefaultDateTimeAddedKey)
         }
         get {
-            return userDefaults.objectForKey(Globals.userDefaultDateTimeAddedKey) as? NSDate
+            return userDefaults.object(forKey: Globals.userDefaultDateTimeAddedKey) as? Date
         }
     }
     var firstName: String? {
         set {
-            userDefaults.setObject(newValue, forKey: Globals.userDefaultFirstNameKey)
+            userDefaults.set(newValue, forKey: Globals.userDefaultFirstNameKey)
         }
         get {
-            return userDefaults.stringForKey(Globals.userDefaultFirstNameKey)
+            return userDefaults.string(forKey: Globals.userDefaultFirstNameKey)
         }
     }
     var lastName: String? {
         set {
-            userDefaults.setObject(newValue, forKey: Globals.userDefaultLastNameKey)
+            userDefaults.set(newValue, forKey: Globals.userDefaultLastNameKey)
         }
         get {
-            return userDefaults.stringForKey(Globals.userDefaultLastNameKey)
+            return userDefaults.string(forKey: Globals.userDefaultLastNameKey)
         }
     }
     var isConsented: Bool? {
         set {
-            userDefaults.setObject(newValue, forKey: Globals.userDefaultIsConsented)
+            userDefaults.set(newValue, forKey: Globals.userDefaultIsConsented)
         }
         get {
-            return userDefaults.boolForKey(Globals.userDefaultIsConsented)
+            return userDefaults.bool(forKey: Globals.userDefaultIsConsented)
         }
     }
     
@@ -66,7 +66,7 @@ class User: NSObject {
         super.init()
     }
     
-    init(uuid: String, storedRemotely: Bool, dateTimeAdded: NSDate, firstName: String, lastName: String, isConsented: Bool) {
+    init(uuid: String, storedRemotely: Bool, dateTimeAdded: Date, firstName: String, lastName: String, isConsented: Bool) {
         super.init()
         User.sharedInstance.uuid = uuid
         User.sharedInstance.storedRemotely = storedRemotely

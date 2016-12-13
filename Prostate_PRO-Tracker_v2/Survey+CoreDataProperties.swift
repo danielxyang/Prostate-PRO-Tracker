@@ -15,8 +15,8 @@ import CoreData
 class Survey: NSManagedObject {
 
     @NSManaged var answers: NSArray
-    @NSManaged var dateTimeAdded: NSDate?
-    @NSManaged var dateTimeCompleted: NSDate
+    @NSManaged var dateTimeAdded: Date?
+    @NSManaged var dateTimeCompleted: Date
     @NSManaged var storedRemotely: NSNumber
     @NSManaged var type: String
 

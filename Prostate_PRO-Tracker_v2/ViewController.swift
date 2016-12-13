@@ -43,24 +43,24 @@ class ViewController: UIViewController {
         //        }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         let completedConsent = hasConsented()
         let oneSurveyResponse = atLeastOneSurveyResponseOfType(Globals.surveyIdentifier)
         
-        respondButton.enabled = completedConsent
-        getInvolvedButton.enabled = completedConsent
-        consentButton.enabled = !(completedConsent)
+        respondButton.isEnabled = completedConsent
+        getInvolvedButton.isEnabled = completedConsent
+        consentButton.isEnabled = !(completedConsent)
         
-        trackResultsButton.enabled = oneSurveyResponse
+        trackResultsButton.isEnabled = oneSurveyResponse
         
         print("uuid: \(User.sharedInstance.uuid), isConsented: \(User.sharedInstance.isConsented), storedRemotely: \(User.sharedInstance.storedRemotely)")
         
         super.viewWillAppear(true)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewWillDisappear(true)
     }
@@ -70,14 +70,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setButtonColor(button: UIButton) {
+    func setButtonColor(_ button: UIButton) {
         button.layer.borderWidth = 1.0
         button.layer.borderColor = Globals.appBlueCG
         button.layer.cornerRadius = 5
-        button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
+        button.setTitleColor(UIColor.gray, for: UIControlState.disabled)
     }
     
-    func setHelpButtonColor(button:UIButton) {
+    func setHelpButtonColor(_ button:UIButton) {
         button.layer.borderWidth = 1.5
         button.layer.borderColor = Globals.appBlueCG
         
@@ -92,10 +92,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var backgroundPicView: UIImageView!
     
-    @IBAction func ConsentTapped(sender: UIButton) {
-        let taskViewController = ORKTaskViewController(task: ConsentTask, taskRunUUID: nil)
+    @IBAction func ConsentTapped(_ sender: UIButton) {
+        let taskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
         taskViewController.delegate = self
-        presentViewController(taskViewController, animated: true, completion: nil)
+        present(taskViewController, animated: true, completion: nil)
     }
     
     
@@ -103,13 +103,13 @@ class ViewController: UIViewController {
     let errorSavingAlert = UIAlertController(
         title: "Error Saving!",
         message: "There has been an error saving your results.",
-        preferredStyle: UIAlertControllerStyle.Alert
+        preferredStyle: UIAlertControllerStyle.alert
     )
     
     
     
-    @IBAction func RespondTapped(sender: UIButton) {
-        let taskViewController = ORKTaskViewController(task: SurveyTask, taskRunUUID: nil)
+    @IBAction func RespondTapped(_ sender: UIButton) {
+        let taskViewController = ORKTaskViewController(task: SurveyTask, taskRun: nil)
         taskViewController.delegate = self
         
         if hasAnsweredSurveyWithin(12) {
@@ -117,83 +117,83 @@ class ViewController: UIViewController {
             let answeredRecentlyAlert = UIAlertController(
                 title: "Recent Response",
                 message: "You've already responded in the last 12 hours. Are you ready to enter another response?",
-                preferredStyle: UIAlertControllerStyle.Alert)
+                preferredStyle: UIAlertControllerStyle.alert)
             
             answeredRecentlyAlert.addAction(UIAlertAction(
                 title: "Yes",
-                style: .Default,
+                style: .default,
                 handler: { (action: UIAlertAction!) in
-                    self.presentViewController(taskViewController, animated: true, completion: nil)
+                    self.present(taskViewController, animated: true, completion: nil)
             }))
             
             answeredRecentlyAlert.addAction(UIAlertAction(
                 title: "No",
-                style: .Default,
+                style: .default,
                 handler: { (action: UIAlertAction!) in
             }))
             
-            presentViewController(answeredRecentlyAlert, animated: true, completion: nil)
+            present(answeredRecentlyAlert, animated: true, completion: nil)
         }
         else {
-            self.presentViewController(taskViewController, animated: true, completion: nil)
+            self.present(taskViewController, animated: true, completion: nil)
         }
     }
     
-    @IBAction func GetInvolvedTapped(sender: UIButton) {
+    @IBAction func GetInvolvedTapped(_ sender: UIButton) {
         
         if atLeastOneSurveyResponseOfType(Globals.getInvolvedIdentifier) {
             let alreadyCompletedAlert = UIAlertController(
                 title: "Thank You!",
                 message: "You have already completed this activity. Thank you for providing us with more information about your cancer and other personal characteristics. This helps us to better understand the changes and symptoms you are feeling, and will help clinicians to provide more complete information to patients in the future.",
-                preferredStyle: UIAlertControllerStyle.Alert)
+                preferredStyle: UIAlertControllerStyle.alert)
             
             alreadyCompletedAlert.addAction(UIAlertAction(
                 title: "OK",
-                style: .Default,
+                style: .default,
                 handler: { (action: UIAlertAction!) in
             }))
             
-            presentViewController(alreadyCompletedAlert, animated: true, completion: nil)
+            present(alreadyCompletedAlert, animated: true, completion: nil)
         }
         else {
             let isSureAlert = UIAlertController(
                 title: "Get Involved",
                 message: "Would you like to get more involved in helping understand how men with prostate cancer feel?",
-                preferredStyle: UIAlertControllerStyle.Alert)
+                preferredStyle: UIAlertControllerStyle.alert)
             
             isSureAlert.addAction(UIAlertAction(
                 title: "Yes",
-                style: .Default,
+                style: .default,
                 handler: { (action: UIAlertAction!) in
-                    let taskViewController = ORKTaskViewController(task: GetInvolvedTask, taskRunUUID: nil)
+                    let taskViewController = ORKTaskViewController(task: GetInvolvedTask, taskRun: nil)
                     taskViewController.delegate = self
-                    self.presentViewController(taskViewController, animated: true, completion: nil)
+                    self.present(taskViewController, animated: true, completion: nil)
             }))
             
             isSureAlert.addAction(UIAlertAction(
                 title: "No",
-                style: .Default,
+                style: .default,
                 handler: { (action: UIAlertAction!) in
             }))
             
-            presentViewController(isSureAlert, animated: true, completion: nil)
+            present(isSureAlert, animated: true, completion: nil)
         }
     }
     
     
     
-    func hasAnsweredSurveyWithin(hours: Int) -> Bool {
+    func hasAnsweredSurveyWithin(_ hours: Int) -> Bool {
         let surveys = coreDataHandler.fetchCoreDataSurveys()
-        let userCalendar = NSCalendar.currentCalendar()
+        let userCalendar = Calendar.current
         
         for s in surveys where s.type == Globals.surveyIdentifier {
-            let timeDifference = userCalendar.components(
-                [.Hour, .Minute],
-                fromDate: s.dateTimeCompleted,
-                toDate: NSDate(),
+            let timeDifference = (userCalendar as NSCalendar).components(
+                [.hour, .minute],
+                from: s.dateTimeCompleted as Date,
+                to: Date(),
                 options: [])
             
-            if (timeDifference.hour < hours) {
+            if (timeDifference.hour! < hours) {
                 return true
             }
         }
@@ -207,7 +207,7 @@ class ViewController: UIViewController {
         return false
     }
     
-    func atLeastOneSurveyResponseOfType(type: String) -> Bool {
+    func atLeastOneSurveyResponseOfType(_ type: String) -> Bool {
         let surveys = coreDataHandler.fetchCoreDataSurveys()
         
         //        print("FETCHING CORE ENTITIES")
@@ -258,7 +258,7 @@ class ViewController: UIViewController {
     //    }
     
     
-    func saveConsent(managedContext: NSManagedObjectContext, results: ORKTaskResult, identifier: String) {
+    func saveConsent(_ managedContext: NSManagedObjectContext, results: ORKTaskResult, identifier: String) {
         var firstName = ""
         var lastName = ""
         var isConsented = false
@@ -286,9 +286,9 @@ class ViewController: UIViewController {
         
         
         //        create dateTimeAdded, UUID, and user
-        let now = NSDate()
-        let uuid: CFUUIDRef = CFUUIDCreate(nil)
-        let nonce: CFStringRef = CFUUIDCreateString(nil, uuid)
+        let now = Date()
+        let uuid: CFUUID = CFUUIDCreate(nil)
+        let nonce: CFString = CFUUIDCreateString(nil, uuid)
         //        var user = User.sharedInstance
         if user.uuid == nil {
             user = User(uuid: nonce as String, storedRemotely: false, dateTimeAdded: now, firstName: firstName, lastName: lastName, isConsented: isConsented)
@@ -318,11 +318,11 @@ class ViewController: UIViewController {
             print("Could not save \(error), \(error.userInfo)")
             errorSavingAlert.addAction(UIAlertAction(
                 title: "OK",
-                style: .Default,
+                style: .default,
                 handler: { (action: UIAlertAction!) in
             }))
             
-            presentViewController(errorSavingAlert, animated: true, completion: nil)
+            present(errorSavingAlert, animated: true, completion: nil)
             return
         }
         //         sets the new local notification
@@ -331,7 +331,7 @@ class ViewController: UIViewController {
     
     
     //    SAVE SURVEYS
-    func saveSurvey(managedContext: NSManagedObjectContext, results: ORKTaskResult, identifier: String) {
+    func saveSurvey(_ managedContext: NSManagedObjectContext, results: ORKTaskResult, identifier: String) {
         var surveyAnswers = [AnyObject]()
         
         //        store answers from ORKTastResult!
@@ -348,11 +348,11 @@ class ViewController: UIViewController {
         }
         
         
-        let survey = NSEntityDescription.insertNewObjectForEntityForName(Globals.surveyIdentifier, inManagedObjectContext: managedContext) as! Survey
+        let survey = NSEntityDescription.insertNewObject(forEntityName: Globals.surveyIdentifier, into: managedContext) as! Survey
         survey.storedRemotely = false
-        survey.dateTimeCompleted = NSDate()
+        survey.dateTimeCompleted = Date()
         survey.type = identifier
-        survey.answers = surveyAnswers
+        survey.answers = surveyAnswers as NSArray
         print("SURVEY ANS: \(survey.answers)")
         
         
@@ -376,11 +376,11 @@ class ViewController: UIViewController {
             print("Could not save \(error), \(error.userInfo)")
             errorSavingAlert.addAction(UIAlertAction(
                 title: "OK",
-                style: .Default,
+                style: .default,
                 handler: { (action: UIAlertAction!) in
             }))
             
-            presentViewController(errorSavingAlert, animated: true, completion: nil)
+            present(errorSavingAlert, animated: true, completion: nil)
         }
         //         sets the new local notification only if was a survey
         if identifier == Globals.surveyIdentifier {
@@ -393,12 +393,12 @@ class ViewController: UIViewController {
 
 extension ViewController : ORKTaskViewControllerDelegate {
     
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         //Handle results with taskViewController.result
         
         
         switch (reason) {
-        case ORKTaskViewControllerFinishReason.Completed:
+        case ORKTaskViewControllerFinishReason.completed:
             // Archive the result object first
             //            let data: NSData = NSKeyedArchiver.archivedDataWithRootObject(taskViewController.result)
             let results = taskViewController.result
@@ -423,13 +423,13 @@ extension ViewController : ORKTaskViewControllerDelegate {
             
             // If any file results are expected, also zip up the outputDirectory.
             break
-        case ORKTaskViewControllerFinishReason.Failed:
+        case ORKTaskViewControllerFinishReason.failed:
             break
-        case ORKTaskViewControllerFinishReason.Discarded:
+        case ORKTaskViewControllerFinishReason.discarded:
             // Generally, discard the result.
             // Consider clearing the contents of the output directory.
             break
-        case ORKTaskViewControllerFinishReason.Saved:
+        case ORKTaskViewControllerFinishReason.saved:
 //            let data: NSData = taskViewController.restorationData!
             
             // Store the restoration data persistently for later use.
@@ -437,7 +437,7 @@ extension ViewController : ORKTaskViewControllerDelegate {
             break
         }
         
-        taskViewController.dismissViewControllerAnimated(true, completion: nil)
+        taskViewController.dismiss(animated: true, completion: nil)
     }
     
 }

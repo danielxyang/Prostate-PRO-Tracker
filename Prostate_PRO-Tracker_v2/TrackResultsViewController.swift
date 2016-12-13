@@ -27,32 +27,32 @@ class TrackResultsViewController: UIViewController {
         
 //        no data settings
         chartView.noDataText = "We can't show you a chart\nwithout any survey results.\n\nBegin by completing 'Respond'\non the home screen."
-        chartView.infoTextColor = UIColor.blackColor()
-        chartView.infoFont = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        chartView.infoTextColor = UIColor.black
+        chartView.infoFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         
 //        axis labels/grids
         chartView.xAxis.spaceBetweenLabels = 0
-        chartView.xAxis.labelPosition = .Bottom
+        chartView.xAxis.labelPosition = .bottom
         chartView.leftAxis.drawGridLinesEnabled = false
         chartView.leftAxis.drawLabelsEnabled = true
         chartView.rightAxis.drawGridLinesEnabled = false
         chartView.rightAxis.drawLabelsEnabled = true
         
 //        axis and legend font
-        chartView.rightAxis.labelFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody) , size: 13)
-        chartView.leftAxis.labelFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody) , size: 13)
-        chartView.xAxis.labelFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody) , size: 13)
-        chartView.legend.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody) , size: 13)
+        chartView.rightAxis.labelFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body) , size: 13)
+        chartView.leftAxis.labelFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body) , size: 13)
+        chartView.xAxis.labelFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body) , size: 13)
+        chartView.legend.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body) , size: 13)
         chartView.legend.wordWrapEnabled = true
         
 //        integer axis labels
-        chartView.leftAxis.valueFormatter = NSNumberFormatter()
+        chartView.leftAxis.valueFormatter = NumberFormatter()
         chartView.leftAxis.valueFormatter?.minimumFractionDigits = 0
-        chartView.rightAxis.valueFormatter = NSNumberFormatter()
+        chartView.rightAxis.valueFormatter = NumberFormatter()
         chartView.rightAxis.valueFormatter?.minimumFractionDigits = 0
 
 //        color preferences
-        chartView.backgroundColor = UIColor.whiteColor()
+        chartView.backgroundColor = UIColor.white
         chartView.drawGridBackgroundEnabled = false
         chartView.drawBarShadowEnabled = false
         
@@ -85,11 +85,11 @@ class TrackResultsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    func generateBarData(dataPoints: [String], values: [Double], title: String)->BarChartData {
+    func generateBarData(_ dataPoints: [String], values: [Double], title: String)->BarChartData {
 //        data
         var dataEntries: [BarChartDataEntry] = []
         for i in 0..<dataPoints.count {
@@ -103,7 +103,7 @@ class TrackResultsViewController: UIViewController {
 //        colors
         chartDataSet.setColor(UIColor(colorLiteralRed: 0/255.0, green: 53/255.0, blue: 107/255.0, alpha: 1.0))
         
-        chartDataSet.axisDependency = ChartYAxis.AxisDependency.Left
+        chartDataSet.axisDependency = ChartYAxis.AxisDependency.left
         let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
         
         return chartData
@@ -111,7 +111,7 @@ class TrackResultsViewController: UIViewController {
 
     
     
-    func generateLineData(dataPoints: [String], values: [Double], title: String)->LineChartData {
+    func generateLineData(_ dataPoints: [String], values: [Double], title: String)->LineChartData {
 //        data
         var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
@@ -132,7 +132,7 @@ class TrackResultsViewController: UIViewController {
         chartDataSet.setCircleColor(lineColor)
         chartDataSet.setColor(lineColor)
         
-        chartDataSet.axisDependency = ChartYAxis.AxisDependency.Right
+        chartDataSet.axisDependency = ChartYAxis.AxisDependency.right
         let chartData = LineChartData(xVals: dataPoints, dataSet: chartDataSet)
 
         return chartData

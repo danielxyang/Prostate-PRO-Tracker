@@ -30,7 +30,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    var answerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    var answerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     var questionStep = ORKQuestionStep(identifier: "questionStep1", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -42,7 +42,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "2-Frequent dribbling", value: 2),
         ORKTextChoice(text: "4-No urinary control", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep2", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -55,7 +55,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "2-Two pads per Day", value: 2),
         ORKTextChoice(text: "4-Three or more pads", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep3", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -69,7 +69,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep4", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -82,7 +82,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep5", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -95,7 +95,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep6", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -108,7 +108,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep7", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -121,7 +121,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep8", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -134,7 +134,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep9", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -147,7 +147,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep10", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -160,7 +160,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Poor", value: 3),
         ORKTextChoice(text: "4-Very poor to none", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep11", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -172,7 +172,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "2-Not firm enough for any sexual activity", value: 2),
         ORKTextChoice(text: "4-None at all", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep12", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -185,7 +185,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep13", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -198,7 +198,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep14", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -211,7 +211,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep15", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -224,7 +224,7 @@ public var SurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "3-Moderate problem", value: 3),
         ORKTextChoice(text: "4-Big problem", value: 4)
     ]
-    answerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
+    answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep16", title: questionStepTitle, answer: answerFormat)
     steps += [questionStep]
     
@@ -235,7 +235,7 @@ public var SurveyTask: ORKOrderedTask {
     steps += [summaryStep]
     
     for i in steps {
-        i.optional = false
+        i.isOptional = false
     }
     
     return ORKOrderedTask(identifier: Globals.surveyIdentifier, steps: steps)

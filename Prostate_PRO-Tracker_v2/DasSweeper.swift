@@ -12,31 +12,31 @@ import CoreData
 class DasSweeper: NSObject {
   
   static let sharedInstance = DasSweeper()
-  var sweepingTimer: NSTimer?
+  var sweepingTimer: Timer?
   var interval = Globals.kSweeperInterval
   let user = User.sharedInstance
   
   var moc = Globals.appDelegate!.managedObjectContext!
   
-  func ageFromDateInMinutes(date: NSDate) -> Int {
-    let cal = NSCalendar.currentCalendar()
-    let unit: NSCalendarUnit = .Minute
+  func ageFromDateInMinutes(_ date: Date) -> Int {
+    let cal = Calendar.current
+    let unit: NSCalendar.Unit = .minute
     
-    let endDate = NSDate()
+    let endDate = Date()
     
-    let components = cal.components(unit, fromDate: date, toDate: endDate, options: [])
+    let components = (cal as NSCalendar).components(unit, from: date, to: endDate, options: [])
     let minutes = components.minute
     
-    return minutes
+    return minutes!
   }
   
   func sweepSurveys() {
-    let fr = NSFetchRequest(entityName: Globals.surveyIdentifier)
+    let fr = NSFetchRequest<NSFetchRequestResult>(entityName: Globals.surveyIdentifier)
     fr.returnsObjectsAsFaults = false
     var result: [Survey]
     
     do {
-        result = (try moc.executeFetchRequest(fr)) as! [Survey]
+        result = (try moc.fetch(fr)) as! [Survey]
     } catch let error as NSError {
         print("Could not fetch \(error), \(error.userInfo)")
         return
@@ -63,12 +63,12 @@ class DasSweeper: NSObject {
   }
   
   func sweepConsents() {
-    let defaults = NSUserDefaults.standardUserDefaults()
-    let fileManager = NSFileManager.defaultManager()
-    let docDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    let defaults = UserDefaults.standard
+    let fileManager = FileManager.default
+    let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     let contents: [AnyObject]?
     do {
-      contents = try fileManager.contentsOfDirectoryAtPath(docDir)
+      contents = try fileManager.contentsOfDirectory(atPath: docDir) as [AnyObject]?
     }
     
     catch {
@@ -79,7 +79,7 @@ class DasSweeper: NSObject {
       for item in contents {
         if item.hasSuffix(".pdf") {
           print("PDF: \(item)", terminator: "")
-          if defaults.boolForKey(item as! String) != true {
+          if defaults.bool(forKey: item as! String) != true {
             print("... not persisted!")
             CMPersist.sharedInstance.dbPostPDF(item as! String, fileString: docDir + "/" + (item as! String))
           }
@@ -108,7 +108,7 @@ class DasSweeper: NSObject {
 //    }
 //  }
   
-  func sweep(sender: AnyObject) {
+  func sweep(_ sender: AnyObject) {
     print("Sweeping...")
     sweepUsers()
     sweepConsents()
@@ -118,7 +118,7 @@ class DasSweeper: NSObject {
   
   func beginSweeping() {
     stopSweeping()
-    sweepingTimer = NSTimer.scheduledTimerWithTimeInterval(interval,
+    sweepingTimer = Timer.scheduledTimer(timeInterval: interval,
       target: self,
       selector: #selector(DasSweeper.sweep(_:)),
       userInfo: nil,
