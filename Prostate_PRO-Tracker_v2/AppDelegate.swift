@@ -39,7 +39,7 @@ struct Globals{
     static let kRestDuration: TimeInterval = 0
     static let kSweeperInterval: TimeInterval = 20
     static let kReminderDurationDays: TimeInterval = 7
-    static let kReminderDuration: TimeInterval = (kReminderDurationDays)/*numDays*/*60*60*24 /*...convert from days to seconds*/
+    static let kReminderDuration: TimeInterval = kReminderDurationDays*60*60*24 /*...convert from days to seconds*/
     //    static let kReminderDuration: NSTimeInterval = 15 //for debugging (in seconds)
     
     static let ScreenHeight = UIScreen.main.bounds.size.height

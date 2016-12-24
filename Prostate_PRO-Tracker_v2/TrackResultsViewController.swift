@@ -31,7 +31,8 @@ class TrackResultsViewController: UIViewController {
         chartView.infoFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         
 //        axis labels/grids
-        chartView.xAxis.spaceBetweenLabels = 0
+//        chartView.xAxis.spaceBetweenLabels = 0
+//        chartView.xAxis.spaceBetweenLabels = 0
         chartView.xAxis.labelPosition = .bottom
         chartView.leftAxis.drawGridLinesEnabled = false
         chartView.leftAxis.drawLabelsEnabled = true

@@ -41,13 +41,13 @@ let kSessionKey = "SessionKey"
       body: Globals.kUserHeader,
       headerParams: Globals.kHeaderParams,
       contentType: Globals.kContentTypeJSON,
-      completionBlock: {(response: Dictionary!, error: NSError!) in
+      completionBlock: {(response: [AnyHashable: Any]?, error: Error?) in
         if ((error) != nil) {
           print(">> DB Session Persist Error: \(error)")
         }
         else {
           print(">> DB Session Response: \(response)")
-          let localSessionId = response["session_id"] as! String
+          let localSessionId = response!["session_id"] as! String
           print("Session ID: \(localSessionId)")
           self.userDefaults.set(localSessionId, forKey: kSessionKey)
         }
@@ -62,7 +62,7 @@ let kSessionKey = "SessionKey"
       body: Globals.kUserHeader,
       headerParams: Globals.kHeaderParams,
       contentType: Globals.kContentTypeJSON,
-      completionBlock: {(response: Dictionary!, error: NSError!) in
+      completionBlock: {(response: [AnyHashable: Any]?, error: Error?) in
         if ((error) != nil) {
           print(">> DB Session Delete Error: \(error)")
         }
@@ -99,7 +99,7 @@ let kSessionKey = "SessionKey"
         "isConsented" : user.isConsented!],
       headerParams: headerParams,
       contentType: Globals.kContentTypeJSON,
-      completionBlock: {(response: Dictionary!, error: NSError!) in
+      completionBlock: {(response: [AnyHashable: Any]?, error: Error?) in
         if ((error) != nil) {
           print(">> DB User Persist Error: \(error)")
           self.dbSessionLogout()
@@ -130,12 +130,12 @@ let kSessionKey = "SessionKey"
         body: Globals.kUserHeader,
         headerParams: Globals.kHeaderParams,
         contentType: Globals.kContentTypeJSON,
-        completionBlock: {(response: Dictionary!, error: NSError!) in
+        completionBlock: {(response: [AnyHashable: Any]?, error: Error?) in
           if ((error) != nil) {
             print(">> DB Session Persist Error: \(error)")
           }
           else {
-            let localSessionId = response["session_id"] as! String
+            let localSessionId = response!["session_id"] as! String
             
             print(">> DB Session Response: \(response)")
             print("Session ID: \(localSessionId)")
@@ -197,7 +197,7 @@ let kSessionKey = "SessionKey"
         "sAnswers" : sAnswers],
       headerParams: headerParams,
       contentType: Globals.kContentTypeJSON,
-      completionBlock: {(response: Dictionary!, error: NSError!) in
+      completionBlock: {(response: [AnyHashable: Any]?, error: Error?) in
         if ((error) != nil) {
           print(">> DB Survey Persist Error: \(error)")
           self.dbSessionLogout()
@@ -228,12 +228,12 @@ let kSessionKey = "SessionKey"
         body: Globals.kUserHeader,
         headerParams: Globals.kHeaderParams,
         contentType: Globals.kContentTypeJSON,
-        completionBlock: {(response: Dictionary!, error: NSError!) in
+        completionBlock: {(response: [AnyHashable: Any]?, error: Error?) in
           if ((error) != nil) {
             print(">> DB Session Persist Error: \(error)")
           }
           else {
-            let localSessionId = response["session_id"] as! String
+            let localSessionId = response!["session_id"] as! String
             
             print(">> DB Session Response: \(response)")
             print("Session ID: \(localSessionId)")
@@ -423,7 +423,7 @@ let kSessionKey = "SessionKey"
       body: file,
       headerParams: headerParams,
       contentType: Globals.kContentTypeOctet,
-      completionBlock: {(response: Dictionary!, error: NSError!) in
+      completionBlock: {(response: [AnyHashable: Any]?, error: Error?) in
         if ((error) != nil) {
           print(">> DB Survey Persist Error: \(error)")
         }
@@ -453,7 +453,7 @@ let kSessionKey = "SessionKey"
         "dateConsented" : dateConsented],
       headerParams: headerParams,
       contentType: Globals.kContentTypeJSON,
-      completionBlock: {(response: Dictionary!, error: NSError!) in
+      completionBlock: {(response: [AnyHashable: Any]?, error: Error?) in
         if ((error) != nil) {
           print(">> DB User Persist Error: \(error)")
         }
@@ -478,12 +478,12 @@ let kSessionKey = "SessionKey"
         body: Globals.kUserHeader,
         headerParams: Globals.kHeaderParams,
         contentType: Globals.kContentTypeJSON,
-        completionBlock: {(response: Dictionary!, error: NSError!) in
+        completionBlock: {(response: [AnyHashable: Any]?, error: Error?) in
           if ((error) != nil) {
             print(">> DB Session Persist Error: \(error)")
           }
           else {
-            localSessionId = response["session_id"] as! String
+            localSessionId = response!["session_id"] as! String
             
             print(">> DB Session Response: \(response)")
             print("Session ID: \(localSessionId)")

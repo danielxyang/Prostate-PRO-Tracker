@@ -42,6 +42,11 @@ class CoreDataHandler: NSObject {
         notification.userInfo = ["UUID": Globals.user.uuid!, ] // assign a unique identifier to the notification so that we can retrieve it later
 //        notification.category = "TODO_CATEGORY"
         UIApplication.shared.scheduleLocalNotification(notification)
+        
+        
+        
+        let r = UNNotificationRequest()
+        r.addingTimeInterval()
     }
     
     func removeLocalNotifications() {

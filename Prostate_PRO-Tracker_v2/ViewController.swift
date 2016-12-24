@@ -339,10 +339,10 @@ class ViewController: UIViewController {
             for QuestionResult in (stepResult as! ORKStepResult).results! {
                 if let qr = QuestionResult as? ORKChoiceQuestionResult {
                     if let sr = qr.choiceAnswers?.first as? Int {
-                        surveyAnswers.append(sr ?? "nil")
+                        surveyAnswers.append(sr as AnyObject? ?? "nil" as AnyObject)
                     }
                 } else {
-                    surveyAnswers.append(((QuestionResult as!ORKQuestionResult).answer as AnyObject?) ?? "nil")
+                    surveyAnswers.append(((QuestionResult as!ORKQuestionResult).answer as AnyObject?) ?? "nil" as AnyObject)
                 }
             }
         }
@@ -393,7 +393,7 @@ class ViewController: UIViewController {
 
 extension ViewController : ORKTaskViewControllerDelegate {
     
-    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         //Handle results with taskViewController.result
         
         
