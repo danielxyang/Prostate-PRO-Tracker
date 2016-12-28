@@ -28,7 +28,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     minDateComps.month = 1
     minDateComps.day = 1
     let minDate = myCal.date(from: minDateComps)!
-    var dateAnswerFormat: ORKDateAnswerFormat = ORKDateAnswerFormat(style: .date, defaultDate: nil, minimumDate: minDate, maximumDate: Date(), calendar: nil)
+    let dateAnswerFormat: ORKDateAnswerFormat = ORKDateAnswerFormat(style: .date, defaultDate: nil, minimumDate: minDate, maximumDate: Date(), calendar: nil)
     var questionStep = ORKQuestionStep(identifier: "questionStep1", title: questionStepTitle, answer: dateAnswerFormat)
     steps += [questionStep]
     
@@ -45,13 +45,13 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     //question 2
     questionStepTitle = "What do you identify as your race?"
     var textChoices = [
-        ORKTextChoice(text: "White", value: 0),
-        ORKTextChoice(text: "Black or African-American", value: 1),
-        ORKTextChoice(text: "Hispanic", value: 2),
-        ORKTextChoice(text: "Asian", value: 3),
-        ORKTextChoice(text: "American Indian or Alaska Native", value: 4),
-        ORKTextChoice(text: "Native Hawaiian or other Pacific Islander", value: 5),
-        ORKTextChoice(text: "Other", value: 6)
+        ORKTextChoice(text: "White", value: NSNumber(value: 0)),
+        ORKTextChoice(text: "Black or African-American", value: NSNumber(value: 1)),
+        ORKTextChoice(text: "Hispanic", value: NSNumber(value: 2)),
+        ORKTextChoice(text: "Asian", value: NSNumber(value: 3)),
+        ORKTextChoice(text: "American Indian or Alaska Native", value: NSNumber(value: 4)),
+        ORKTextChoice(text: "Native Hawaiian or other Pacific Islander", value: NSNumber(value: 5)),
+        ORKTextChoice(text: "Other", value: NSNumber(value: 6))
     ]
     var textChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep2", title: questionStepTitle, answer: textChoiceAnswerFormat)
@@ -66,12 +66,12 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     //question 3
     questionStepTitle = "Do you know the stage of your prostate cancer?"
     textChoices = [
-        ORKTextChoice(text: "Stage 0", value: 0),
-        ORKTextChoice(text: "Stage I", value: 1),
-        ORKTextChoice(text: "Stage II", value: 2),
-        ORKTextChoice(text: "Stage III", value: 3),
-        ORKTextChoice(text: "Stage IV", value: 4),
-        ORKTextChoice(text: "I don't know", value: 5)
+        ORKTextChoice(text: "Stage 0", value: NSNumber(value: 0)),
+        ORKTextChoice(text: "Stage I", value: NSNumber(value: 1)),
+        ORKTextChoice(text: "Stage II", value: NSNumber(value: 2)),
+        ORKTextChoice(text: "Stage III", value: NSNumber(value: 3)),
+        ORKTextChoice(text: "Stage IV", value: NSNumber(value: 4)),
+        ORKTextChoice(text: "I don't know", value: NSNumber(value: 5))
     ]
     textChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep3", title: questionStepTitle, answer: textChoiceAnswerFormat)
@@ -97,7 +97,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     
     //question 7
     questionStepTitle = "What is was your PSA (prostate specific antigen) level prior to starting cancer treatment (prior to any hormonal therapy)?"
-    var numericAnswerFormat = ORKNumericAnswerFormat(style: .decimal, unit: "ng/mL")
+    let numericAnswerFormat = ORKNumericAnswerFormat(style: .decimal, unit: "ng/mL")
     numericAnswerFormat.minimum = 0
     numericAnswerFormat.maximum = 100
     questionStep = ORKQuestionStep(identifier: "questionStep7", title: questionStepTitle, answer: numericAnswerFormat)
@@ -136,13 +136,13 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     //question 13
     questionStepTitle = "What type of radiation treatment did you get?"
     textChoices = [
-        ORKTextChoice(text: "Daily beam radiation - more than 30 treatments", value: 0),
-        ORKTextChoice(text: "Cyberknife or other radio surgical treatment - 1-5 treatments", value: 1),
-        ORKTextChoice(text: "Permanent radioactive seed implant", value: 2),
-        ORKTextChoice(text: "High dose rate brachytherapy", value: 3),
-        ORKTextChoice(text: "Combination of external beam and seed implant", value: 4),
-        ORKTextChoice(text: "Combination of external beam and cyberkinfe/radiosurgery", value: 5),
-        ORKTextChoice(text: "Combination of external beam and high dose rate brachytherapy", value: 6)
+        ORKTextChoice(text: "Daily beam radiation - more than 30 treatments", value: NSNumber(value: 0)),
+        ORKTextChoice(text: "Cyberknife or other radio surgical treatment - 1-5 treatments", value: NSNumber(value: 1)),
+        ORKTextChoice(text: "Permanent radioactive seed implant", value: NSNumber(value: 2)),
+        ORKTextChoice(text: "High dose rate brachytherapy", value: NSNumber(value: 3)),
+        ORKTextChoice(text: "Combination of external beam and seed implant", value: NSNumber(value: 4)),
+        ORKTextChoice(text: "Combination of external beam and cyberkinfe/radiosurgery", value: NSNumber(value: 5)),
+        ORKTextChoice(text: "Combination of external beam and high dose rate brachytherapy", value: NSNumber(value: 6))
     ]
     textChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     questionStep = ORKQuestionStep(identifier: "questionStep13", title: questionStepTitle, answer: textChoiceAnswerFormat)
@@ -167,7 +167,7 @@ public var GetInvolvedTask: ORKNavigableOrderedTask {
     
     
     //    add rule to step 2
-    var resultPredicates = [ORKResultPredicate.predicateForChoiceQuestionResult(with: ORKResultSelector(resultIdentifier:"questionStep2"), expectedAnswerValue: 6)]
+    var resultPredicates = [ORKResultPredicate.predicateForChoiceQuestionResult(with: ORKResultSelector(resultIdentifier:"questionStep2"), expectedAnswerValue: NSNumber(value: 6))]
     
     var destinationStepIdentifiers = ["questionStep2b"]
     

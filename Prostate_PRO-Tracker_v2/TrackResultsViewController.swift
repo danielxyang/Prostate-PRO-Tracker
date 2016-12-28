@@ -27,8 +27,10 @@ class TrackResultsViewController: UIViewController {
         
 //        no data settings
         chartView.noDataText = "We can't show you a chart\nwithout any survey results.\n\nBegin by completing 'Respond'\non the home screen."
-        chartView.infoTextColor = UIColor.black
-        chartView.infoFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        chartView.noDataTextColor = UIColor.black
+        chartView.noDataFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+//        chartView.infoTextColor = UIColor.black
+//        chartView.infoFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         
 //        axis labels/grids
 //        chartView.xAxis.spaceBetweenLabels = 0
@@ -47,10 +49,10 @@ class TrackResultsViewController: UIViewController {
         chartView.legend.wordWrapEnabled = true
         
 //        integer axis labels
-        chartView.leftAxis.valueFormatter = NumberFormatter()
-        chartView.leftAxis.valueFormatter?.minimumFractionDigits = 0
-        chartView.rightAxis.valueFormatter = NumberFormatter()
-        chartView.rightAxis.valueFormatter?.minimumFractionDigits = 0
+        chartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
+//        chartView.leftAxis.valueFormatter?.minimumFractionDigits = 0
+        chartView.rightAxis.valueFormatter = DefaultAxisValueFormatter(formatter: NumberFormatter())
+//        chartView.rightAxis.valueFormatter?.minimumFractionDigits = 0
 
 //        color preferences
         chartView.backgroundColor = UIColor.white
@@ -58,21 +60,23 @@ class TrackResultsViewController: UIViewController {
         chartView.drawBarShadowEnabled = false
         
 //        set graph boundaries
-        chartView.leftAxis.axisMaxValue = 12.5
-        chartView.leftAxis.axisMinValue = 0
-        chartView.rightAxis.axisMaxValue = 62.0
-        chartView.rightAxis.axisMinValue = 0
+        chartView.leftAxis.axisMaximum = 12.5
+        chartView.leftAxis.axisMinimum = 0
+        chartView.rightAxis.axisMaximum = 62.0
+        chartView.rightAxis.axisMinimum = 0
         
 //        working with texts
-        chartView.descriptionText = ""
+        chartView.chartDescription?.text = ""
         navTitle.title = categoryTitle
         
 //        generate the data
-        let data = CombinedChartData(xVals: surveyDates)
+        var dataSetDates = [IChartDataSet]()
+        dataSetDates.append(surveyDates as! IChartDataSet)
+        let data = CombinedChartData(dataSets: dataSetDates)
         data.barData = generateBarData(surveyDates, values: surveyCategoryResults, title: categoryTitle)
         data.lineData = generateLineData(surveyDates, values: surveyCategoryOverallResults, title: "Overall Score")
         
-        if data.xValCount > 0 {
+        if data.entryCount > 0 {
             chartView.data = data
         }
         
@@ -94,9 +98,9 @@ class TrackResultsViewController: UIViewController {
 //        data
         var dataEntries: [BarChartDataEntry] = []
         for i in 0..<dataPoints.count {
-            dataEntries.append(BarChartDataEntry(value: values[i], xIndex: i))
+            dataEntries.append(BarChartDataEntry(x: Double(i), y: values[i]))
         }
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: title)
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: title)
         
 //        visuals
         chartDataSet.drawValuesEnabled = false
@@ -104,8 +108,8 @@ class TrackResultsViewController: UIViewController {
 //        colors
         chartDataSet.setColor(UIColor(colorLiteralRed: 0/255.0, green: 53/255.0, blue: 107/255.0, alpha: 1.0))
         
-        chartDataSet.axisDependency = ChartYAxis.AxisDependency.left
-        let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
+        chartDataSet.axisDependency = YAxis.AxisDependency.left
+        let chartData = BarChartData(dataSet: chartDataSet)
         
         return chartData
     }
@@ -116,9 +120,9 @@ class TrackResultsViewController: UIViewController {
 //        data
         var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
-            dataEntries.append(ChartDataEntry(value: values[i], xIndex: i))
+            dataEntries.append(ChartDataEntry(x: Double(i), y: values[i]))
         }
-        let chartDataSet = LineChartDataSet(yVals: dataEntries, label: title)
+        let chartDataSet = LineChartDataSet(values: dataEntries, label: title)
         
 //        visuals
         chartDataSet.drawValuesEnabled = false
@@ -133,8 +137,8 @@ class TrackResultsViewController: UIViewController {
         chartDataSet.setCircleColor(lineColor)
         chartDataSet.setColor(lineColor)
         
-        chartDataSet.axisDependency = ChartYAxis.AxisDependency.right
-        let chartData = LineChartData(xVals: dataPoints, dataSet: chartDataSet)
+        chartDataSet.axisDependency = YAxis.AxisDependency.right
+        let chartData = LineChartData(dataSet: chartDataSet)
 
         return chartData
     }

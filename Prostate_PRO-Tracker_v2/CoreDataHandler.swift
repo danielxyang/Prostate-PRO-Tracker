@@ -41,12 +41,9 @@ class CoreDataHandler: NSObject {
 //        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
         notification.userInfo = ["UUID": Globals.user.uuid!, ] // assign a unique identifier to the notification so that we can retrieve it later
 //        notification.category = "TODO_CATEGORY"
+        
+        notification.repeatInterval = NSCalendar.Unit.weekOfYear
         UIApplication.shared.scheduleLocalNotification(notification)
-        
-        
-        
-        let r = UNNotificationRequest()
-        r.addingTimeInterval()
     }
     
     func removeLocalNotifications() {
