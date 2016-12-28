@@ -70,15 +70,24 @@ class TrackResultsViewController: UIViewController {
         navTitle.title = categoryTitle
         
 //        generate the data
-        var dataSetDates = [IChartDataSet]()
-        dataSetDates.append(surveyDates as! IChartDataSet)
-        let data = CombinedChartData(dataSets: dataSetDates)
+        let data = CombinedChartData(dataSets: [ChartDataSet]())
         data.barData = generateBarData(surveyDates, values: surveyCategoryResults, title: categoryTitle)
         data.lineData = generateLineData(surveyDates, values: surveyCategoryOverallResults, title: "Overall Score")
         
         if data.entryCount > 0 {
             chartView.data = data
         }
+        
+        chartView.xAxis.valueFormatter = XValsFormatter(xVals: surveyDates)
+        print(chartView.xAxis.labelCount)
+        print(data.barData.entryCount)
+        
+        //because we're setting an index (double) and linking the "date" string to that index,
+        //charts automatically creates x-labels for doubles between the entries. This forces the
+        //number of tabels to be equal to the actual number of data entries. Not sure what happens
+        //if we have too many data points.
+        chartView.xAxis.setLabelCount(data.barData.entryCount, force: true)
+        chartView.xAxis.avoidFirstLastClippingEnabled = true
         
         chartView.animate(xAxisDuration: 1.5, yAxisDuration: 2.0)
 
@@ -141,6 +150,19 @@ class TrackResultsViewController: UIViewController {
         let chartData = LineChartData(dataSet: chartDataSet)
 
         return chartData
+    }
+    
+    class XValsFormatter: NSObject, IAxisValueFormatter {
+        
+        let xVals: [String]
+        init(xVals: [String]) {
+            self.xVals = xVals
+        }
+        
+        func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+            return xVals[Int(value)]
+        }
+        
     }
     
 
