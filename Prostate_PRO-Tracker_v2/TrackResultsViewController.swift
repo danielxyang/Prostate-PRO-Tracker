@@ -79,8 +79,6 @@ class TrackResultsViewController: UIViewController {
         }
         
         chartView.xAxis.valueFormatter = XValsFormatter(xVals: surveyDates)
-        print(chartView.xAxis.labelCount)
-        print(data.barData.entryCount)
         
         //because we're setting an index (double) and linking the "date" string to that index,
         //charts automatically creates x-labels for doubles between the entries. This forces the

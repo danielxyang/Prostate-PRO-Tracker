@@ -35,15 +35,26 @@ class CoreDataHandler: NSObject {
         removeLocalNotifications()
         // create a corresponding local notification
         let notification = UILocalNotification()
-        notification.alertBody = "You haven't responded in \(Int(Globals.kReminderDurationDays)) days." // text that will be displayed in the notification
-        notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-        notification.fireDate = Date().addingTimeInterval(Globals.kReminderDuration)// todo item due date (when notification will be fired)
-//        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
-        notification.userInfo = ["UUID": Globals.user.uuid!, ] // assign a unique identifier to the notification so that we can retrieve it later
-//        notification.category = "TODO_CATEGORY"
         
-        notification.repeatInterval = NSCalendar.Unit.weekOfYear
-        UIApplication.shared.scheduleLocalNotification(notification)
+        //add 3 notifications, each separated by a reminderDuration. The last one will repeat every month
+        for i in 0..<3 {
+            // text that will be displayed in the notification
+            notification.alertBody = "You haven't responded in \(Int(Globals.kReminderDurationDays)) days."
+            // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+            notification.alertAction = "open"
+            //now + reminder duration
+            let fireDate = Date().addingTimeInterval(Globals.kReminderDuration)
+            //add one duration per iteration
+            notification.fireDate = fireDate.addingTimeInterval(Globals.kReminderDuration * Double(i))
+            notification.userInfo = ["UUID": Globals.user.uuid!, ] // assign a unique identifier to the notification so that we can retrieve it later
+    
+            // repeat only the final reminder every month
+            if i == 2 {
+                notification.repeatInterval = NSCalendar.Unit.month
+            }
+            UIApplication.shared.scheduleLocalNotification(notification)
+        }
+        
     }
     
     func removeLocalNotifications() {
