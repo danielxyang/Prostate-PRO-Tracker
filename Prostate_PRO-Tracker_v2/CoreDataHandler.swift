@@ -39,7 +39,7 @@ class CoreDataHandler: NSObject {
         //add 3 notifications, each separated by a reminderDuration. The last one will repeat every month
         for i in 0..<3 {
             // text that will be displayed in the notification
-            notification.alertBody = "You haven't responded in \(Int(Globals.kReminderDurationDays)) days."
+            notification.alertBody = "It's been a while since you last filled out a prostate symptom survey. Would you like to record your symptoms?"
             // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
             notification.alertAction = "open"
             //now + reminder duration
