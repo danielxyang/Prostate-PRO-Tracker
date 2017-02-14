@@ -1,0 +1,3 @@
+github "ResearchKit/ResearchKit" "6089b09963f2a829822baead1912acdd21a064ca"
+github "realm/realm-cocoa" "v1.1.0"
+github "Danielgindi/Charts" "v3.0.1"
